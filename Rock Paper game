@@ -1,0 +1,111 @@
+#include<iostream>
+#include <stdlib.h>
+#include<ctime>
+#include<conio.h> //header file for getch(); function.
+using namespace std;
+
+int main()
+{
+ 
+cout<<"          Welcome to ROCK SCISSOR PAPER GAME :  " <<endl;
+string playername;
+cout<<" Enter Your Name   :  " <<endl;
+cin>>playername;
+
+   
+int rounds;
+cout<<playername <<" how many rounds you want to play  " <<endl;
+cin>>rounds;
+
+int playerscore =0 ;
+
+int computerscore = 0 ;
+     int playerchoice ;
+     int computerchoice ; 
+
+for( int round=1 ; round<rounds ; round++ )
+ {   
+  
+     int playerchoice ;
+     int computerchoice ;     
+     cout<<" Round No.  " <<round   << " / " <<rounds <<endl;
+     
+     //int playerscore =0 ;
+     cout<<playername <<"'s score  =  " <<playerscore <<endl;
+     //int computerscore = 0 ;
+     cout<<"Computer Score   =  " <<computerscore <<endl;
+     
+     // int playerchoice ;
+     cout<<" ***************************************** "<<endl;
+     cout<<" press 1 for  ROCK  "<<endl;
+     cout<<" press 2 for  Scissor  "<<endl;
+     cout<<" press 3 for  Paper  "<<endl;
+   
+    // int computerchoice ;
+     do
+
+     {
+     cout<<" ***************************************** "<<endl;
+     cout<<playername <<" Select your choice from given options  :  "<<endl;
+     cout<<" ***************************************** "<<endl;
+     cin>>playerchoice ;
+     } while( playerchoice != 1 && playerchoice != 2 &&  playerchoice != 3);
+    srand (time(0) );
+    computerchoice = (rand() %3 ) +1 ;
+    
+
+        
+    if( playerchoice == 1 && computerchoice==2 )
+    {
+        cout<<"Player win : " <<endl;
+        playerscore++;
+    }
+    else if( playerchoice==2 && computerchoice==3 )
+    {
+        cout<<"Player win : " <<endl;
+        playerscore++;
+    }
+     else if( playerchoice==3 && computerchoice==1 )
+    {
+        cout<<"Player win : " <<endl;
+         playerscore++;
+        
+    }
+    else if( playerchoice == computerchoice )
+    {
+         cout<<" Game  DRAW  " <<endl;
+    }
+    else 
+    {
+        cout<<"  -- COMPUTER WIN --  " <<endl;
+        computerscore++;
+        //here is little bug
+        //if player doesnot slect 1,2,3,option 
+        //our program show comp wins
+        //so we don't want this 
+        //that's why we use do while loop on user's choice
+    }
+     
+getch () ;
+
+}
+
+    // in last after for loop we just need to print who is win
+    if( playerscore > computerscore  )
+    {
+        cout<<" wohoo Congradulations, You Won  : " <<endl;
+        cout<<" Thanks for playing " <<endl; 
+    }
+    else if( playerscore < computerscore  )
+    {
+        cout<<" Computer Win  : " <<endl;
+        cout<<" Thanks for playing " <<endl; 
+    }
+    else if( playerscore == computerscore  )
+    {
+        cout<<" Game Is Drawn   : " <<endl;
+        cout<<" Thanks for playing " <<endl; 
+    }
+
+    return 0;
+}
